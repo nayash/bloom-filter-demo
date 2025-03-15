@@ -1,0 +1,33 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: bloom-filter
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bloom-filter-demo
+    username: root
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  servlet:
+    multipart:
+      max-file-size: 5MB
+redis:
+  host: 'redis://127.0.0.1:6379'
+  max-total: 1100
+  max-idle: 16
+  min-idle: 16
+  idle-time: 60
+  eviction: 30
+  tests: 3
+
+bloom-filter:
+  username:
+    n: 15000000
+    p: 0.01
